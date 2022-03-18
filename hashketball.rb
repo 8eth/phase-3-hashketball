@@ -127,3 +127,34 @@ def game_hash
 end
 
 # Write code here
+
+def all_players
+  game_hash[:home][:players] + game_hash[:away][:players]
+end
+
+def all_teams
+  game_hash[:home] + game_hash[:away]
+end
+
+def player_stats(player_name)
+  all_players.find do |player| 
+    player_name == player[:player_name]
+  end
+end
+
+def num_points_scored(player_name)
+  player = player_stats(player_name)
+  player[:points]
+end
+
+def shoe_size(player_name)
+  player = player_stats(player_name)
+  player[:shoe]
+end
+
+# def team_colors(team_name)
+#   team = all_teams.find do |team|
+#     team_name == team[:team_name]
+#   end
+#   team[:color]
+# end
